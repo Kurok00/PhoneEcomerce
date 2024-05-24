@@ -1,0 +1,23 @@
+<%-include('../../components/header.ejs')-%>
+<%-include('../../components/header.admin.ejs')-%>
+<div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <h1 class="mb-3">Cập nhật danh mục</h1>
+        <form action="/admin/danh-muc/cap-nhat/<%=categories._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+            <label for="name" class="form-label">Tên danh mục</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" value="<%=categories.name %>">
+            </div>
+            <div class="mb-3">
+            <div><label for="image" class="form-label">Hình ảnh</label></div>
+            <img src="/uploads/<%=categories.image %>" class="img-thumbnail mb-3">
+            <input type="file" class="form-control" id="image" name="image" aria-describedby="emailHelp" value="<%=categories.image %>">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        </form>
+      </div>
+    </div>
+  </div>
+<%-include('../../components/footer.ejs')-%>

@@ -1,0 +1,44 @@
+<%-include('../../components/header.ejs')-%>
+<%-include('../../components/header.admin.ejs')-%>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <h1 class="mb-3 text-center text-primary">Tạo sản phẩm</h1>
+      <form action="/admin/san-pham/tao-san-pham" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+          <label for="name" class="form-label">Tên sản phẩm</label>
+          <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Hình ảnh</label>
+            <input type="file" class="form-control" id="image" name="image" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">Danh mục</label>
+            <select class="form-select" aria-label="Default select example" name="category" required>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category._id %>"><%= category.name %></option>
+                <% }) %>
+              </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="price" class="form-label">Giá thành</label>
+            <input type="number" class="form-control" id="price" name="price" aria-describedby="emailHelp">
+          </div>
+
+          <div class="mb-3">
+            <label for="count" class="form-label">Số lượng</label>
+            <input type="number" class="form-control" id="count" name="count" aria-describedby="emailHelp">
+          </div>
+
+          <div class="mb-3">
+            <label for="desc" class="form-label">Mô tả</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" id="desc" name="desc"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Tạo sản phẩm</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%-include('../../components/footer.ejs')-%>
