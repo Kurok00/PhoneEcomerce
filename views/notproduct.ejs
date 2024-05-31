@@ -1,0 +1,23 @@
+<%-include('components/header.ejs')-%>
+<%-include('components/navbar.ejs')-%>
+<div class="bg-primary">
+    <div class="container">
+        <p class="bcreak-crum">
+            <a class="site-map" href="/">Trang chủ</a>  /  <a class="site-map" href="/danh-sach-san-pham">Tất cả sản phẩm</a>
+        </p>
+    </div>
+</div>
+        <div class="container py-5 px-5">
+            <h1 class="text-center text-primary">Không tìm thấy sản phẩm</h1>
+            <p class="text-primary">Mời tìm kiếm lại: </p>
+           <div class="mb-5">
+            <form method="POST" action="/danh-sach-san-pham/tim-kiem" enctype="multipart/form-data" enctype="multipart/form-data" class="form-inline my-2 mb-3 my-lg-0 d-flex">
+                <input class="form-control mr-sm-2" name ="name" type="text" placeholder="Tìm sản phẩm" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm</button>
+            </form>
+        </div>
+        </div>
+
+
+<%-include('components/footer.nav.ejs')-%>
+<%-include('components/footer.ejs')-%>

@@ -1,0 +1,28 @@
+<%-include('components/header.ejs')-%>
+<%-include('components/navbar.ejs')-%>
+<div class="bg-primary">
+    <div class="container">
+        <p class="bcreak-crum">
+            <a class="site-map" href="/">Tranng chủ</a>  /  <a class="site-map" href="/danh-muc"><%= category.name %></a>
+        </p>
+    </div>
+</div>
+        <div class="container py-5 px-5">
+            <div class="row product">
+                <% products.forEach(product => {%>
+                    <div class="card px-5 m-3 d-flex justify-content-center align-items-center" style="width: 18rem;">
+                        <div>
+                            <img src="/uploads/<%= product.image %>" class="card-img-top" style="width: 150px; height: 150px; padding: 10px;">
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title"><%= product.name %></h5>
+                          <p class="card-text"><%= product.price %> VNĐ</p>
+                          <a href="/danh-sach-san-pham/san-pham/<%= product._id %>" class="btn btn-primary">Xem chi tiết</a>
+                        </div>
+                      </div>
+                <% }) %>
+            </div>
+        </div>
+
+<%-include('components/footer.nav.ejs')-%>
+<%-include('components/footer.ejs')-%>

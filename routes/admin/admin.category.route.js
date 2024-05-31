@@ -26,8 +26,4 @@ route.put('/cap-nhat/:id',upload.single('image'),adCategoryController.putEditCat
 
 route.delete('/xoa/:id',adCategoryController.deleteCategory)
 
-route.get('/xnxx/',(req,res)=>{
-  
-})
-
 module.exports = route

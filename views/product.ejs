@@ -1,0 +1,50 @@
+<%-include('components/header.ejs')-%>
+<%-include('components/navbar.ejs')-%>
+<div class="bg-primary">
+    <div class="container">
+        <p class="bcreak-crum">
+            <a class="site-map" href="/">Trang chủ</a>  /  <a class="site-map" href="/danh-sach-san-pham">Tất cả sản phẩm</a> / <a class="site-map" href="/danh-muc"><%= product.name %></a>
+        </p>
+    </div>
+</div>
+        <div class="container py-5 px-5 d-flex">
+            <div class="row col-6">
+                <img src="/uploads/<%= product.image %>" alt="">
+            </div>
+            <div class="row col-6">
+                <div class="px-3 d-flex flex-column justify-content-center align-items-start">
+                    <h1><%= product.name %></h1>
+                    <p><%= product.desc %></p>
+                    <p>Giá: <%= product.price %> VNĐ</p>
+                    <p>Số lượng: <%= product.count %> VNĐ</p>
+                    <p>Danh mục: <%= product.category.name %></p>
+                    <form action="/gio-hang/them-gio-hang/<%= product._id %>" method="POST">
+                        <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h3 class=" py-5 px-5 tex-primary">Sản phẩm cùng danh mục</h3>
+            <div class="container d-flex">
+                <% relatedProducts.forEach(product => {%>
+                <div class="card m-3 d-flex justify-content-center align-items-center" style="width: 18rem;">
+                    <div>
+                        <img class="card-img" src="/uploads/<%= product.image %>" alt="Card image cap">
+                    </div>
+                    <div class="mt-3 mb-3">
+                        <h5 class="card-title text-center" style="font-size: 13px;"><%= product.name %></h5>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center" style="font-size: 15px;"><%= product.price %></h5>
+                        <form action="/gio-hang/them-gio-hang/<%= product._id %>" method="POST">
+                            <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+                        </form>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+
+<%-include('components/footer.nav.ejs')-%>
+<%-include('components/footer.ejs')-%>

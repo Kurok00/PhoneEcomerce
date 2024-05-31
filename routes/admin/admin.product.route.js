@@ -20,5 +20,7 @@ route.post('/tao-san-pham',upload.single('image'),adProductController.postAddPro
 
 route.get('/danh-sach',adProductController.getListProduct)
 route.get('/cap-nhat/:id',adProductController.getEditProduct)
+route.put('/cap-nhat/:id',upload.single('image'),adProductController.putEditProduct)
+route.delete('/xoa/:id',adProductController.deleteProduct)
 
 module.exports = route

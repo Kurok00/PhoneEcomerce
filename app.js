@@ -39,8 +39,14 @@ const adminCategoryRoute = require('./routes/admin/admin.category.route')
 const adminProductRoute = require('./routes/admin/admin.product.route')
 const { Mongoose, default: mongoose } = require('mongoose')
 const {checkAdmin,checkAuth}   = require('./middleware/checkAuth.middleware')
+const categoryRoute = require('./routes/category.route')
+const productRoute = require('./routes/product.route')
+const cartRoute = require('./routes/cart.route')
 // Using Route
 app.use('/', homeRouter)
+app.use('/danh-muc',categoryRoute)
+app.use('/danh-sach-san-pham',productRoute)
+app.use('/gio-hang',cartRoute)
 
 // admin Route
 app.use('/admin',checkAuth, checkAdmin,adminRoute)

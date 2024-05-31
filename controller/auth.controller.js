@@ -1,13 +1,12 @@
 const userModel = require('../model/user.model')
 const bcrypt = require('bcrypt')
-const { viewAllCategory } = require('./adminController/adminCategory.controller')
 
 const getRegister = (req,res)=>{
-    res.render('../views/register.ejs')
+    res.render('../views/register.ejs',{title:"Đăng ký tài khoản"})
 }
 
 const getLogin = (req,res) =>{
-    res.render('../views/login.ejs')
+    res.render('../views/login.ejs',{title:"Đăng nhập tài khoản"})
 }
 const postRegister = async (req,res)=>{
     try{
@@ -34,17 +33,31 @@ const postLogin = async (req,res)=>{
     if(userFind && userPassword){
         req.session.userId = userFind._id
         req.session.userRole = userFind.role
-        return res.render('../views/homePage.ejs')
+        if( userFind.role === "admin"){
+            res.redirect('/admin')
+        }else{
+            res.redirect('/')
+        }
     }else{
         res.render('../views/login.ejs',{message: 'Tài khoản mật khẩu không chính xác'})
         console.log(message);
     }
 }
 
+const logout = (req, res) => {
+    req.session.destroy((err) =>{
+        if(err) {
+            console.log(err);
+        } else {
+            res.redirect('/');
+        }
+    })
+}
 
 module.exports = {
     getRegister,
     postRegister,
     getLogin,
-    postLogin
+    postLogin,
+    logout,
 }

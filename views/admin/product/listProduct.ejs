@@ -8,7 +8,6 @@
                     <thead>
                         <tr>
                             <th>Tên sản phẩm</th>
-                            <th>Danh mục</th>
                             <th>Hình ảnh</th>
                             <th>Giá</th>
                             <th>Actions</th>
@@ -17,17 +16,18 @@
                     <tbody>
                         <% products.forEach(product=> {%>
                         <tr>
-                            <th scope="row"><%= product.name %></th>
-                            <th scope="row"><%= product.category.name %></th>
+                            <th scope="row">
+                                <p class="text-start"><%= product.name %></p>
+                            </th>
                             <td>
-                                <img src="/uploads/<%= product.image %>" alt="" class="img-thumbnail">
+                                <img src="/uploads/<%= product.image %>" alt="" class="card-img">
                             </td>
                             <td>
                                 <p class="price"><%= product.price %> VNĐ</p>
                             </td>
                             <td class="mb-5">
                                 <a  href="/admin/san-pham/cap-nhat/<%= product._id %>"><button type="button" class="btn btn-warning mb-3">Sửa</button></a>
-                                <form action="" method="POST">
+                                <form action="/admin/san-pham/xoa/<%= product._id %>?_method=DELETE" method="POST">
                                         <button type="submit" class="btn btn-danger">Xoá</button>
                                 </form>
                             </td>

@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-lg-9">
       <h1 class="mb-3 text-center text-primary">Cập nhật sản phẩm</h1>
-      <form action="/admin/san-pham/tao-san-pham" method="POST" enctype="multipart/form-data">
+      <form action="/admin/san-pham/cap-nhat/<%= product._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
           <label for="name" class="form-label">Tên sản phẩm</label>
           <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" value="<%= product.name %>"> 
